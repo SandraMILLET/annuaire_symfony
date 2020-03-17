@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Inscription Professionnel {% endblock %}
+
+{% block body %}
+    <section>
+    {{ form_start(form) }}
+{{form_row(form.Name) }}
+{{form_row(form.Firstname) }}
+{{form_row(form.Mail) }}
+{{form_row(form.Password) }}
+{{form_row(form.Siret) }}
+{{form_row(form.Doc) }}
+{{form_row(form.Trades) }}
+
+<button type="submit">Valider</button>
+    {{ form_end(form) }}
+{% endblock %}
