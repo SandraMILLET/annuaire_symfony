@@ -11,7 +11,7 @@ use App\Form\InscriptionProType;
 class InscriptionProController extends AbstractController
 {
     /**
-     * @Route("/inscription/pro", name="inscription_pro")
+     * @Route("/inscription_pro", name="inscription_pro")
      */
     public function index(Request $request)
     {
