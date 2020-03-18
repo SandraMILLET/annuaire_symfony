@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Inscription Client{% endblock %}
+
+{% block body %}
+<section>
+    <h1> Inscription Client </h1>
+    {{ form_start(form) }}
+{{form_row(form.Name) }}
+{{form_row(form.Firstname) }}
+{{form_row(form.Mail) }}
+{{form_row(form.Password) }}
+{{form_row(form.Picture) }}
+
+<button type="button" class="btn btn-warning">Valider</button>
+    {{ form_end(form) }}
+{% endblock %}
