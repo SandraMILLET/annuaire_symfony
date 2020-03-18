@@ -1,5 +1,8 @@
 *{
-    background-color: #008ac9;
+    background:-webkit-linear-gradient(rgba(0, 78, 114, 0.9) 50%,
+     rgba(0, 138, 201, 0.9)) 0 0 no-repeat, url(../IMG/bgheader.png) 100% 0% no-repeat;
+    background-size: cover;
+    
 }
 h1{
     color: #ffffff;
@@ -7,6 +10,8 @@ h1{
     display: flex;
     justify-content: center;
 }
-p{
+form{
+    margin-left: 400px;
     color: #ffffff;
 }
+

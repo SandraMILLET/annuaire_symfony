@@ -5,6 +5,8 @@
 {% block body %}
 <section>
     <h1> Inscription Client </h1>
+    <div class="container">
+        <div class="row">
     {{ form_start(form) }}
 {{form_row(form.Name) }}
 {{form_row(form.Firstname) }}
@@ -13,5 +15,8 @@
 {{form_row(form.Picture) }}
 
 <button type="button" class="btn btn-warning">Valider</button>
+</div>
+        
+    </div>
     {{ form_end(form) }}
 {% endblock %}
