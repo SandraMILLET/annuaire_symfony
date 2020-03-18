@@ -1,4 +1,12 @@
+*{
+    background-color: #008ac9;
+}
 h1{
-    color: #008ac9;
+    color: #ffffff;
     text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+}
+p{
+    color: #ffffff;
 }

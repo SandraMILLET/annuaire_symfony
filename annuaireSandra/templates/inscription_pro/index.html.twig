@@ -3,17 +3,26 @@
 {% block title %} Inscription Professionnel {% endblock %}
 
 {% block body %}
-    <section>
+<section>
     <h1> Inscription Professionnel </h1>
-    {{ form_start(form) }}
-{{form_row(form.Name) }}
-{{form_row(form.Firstname) }}
-{{form_row(form.Mail) }}
-{{form_row(form.Password) }}
-{{form_row(form.Siret) }}
-{{form_row(form.Doc) }}
-{{form_row(form.Trades) }}
 
-<button type="button" class="btn btn-warning">Valider</button>
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    
+    {{ form_label(form.Name) }}
+    {{form_widget(form.Name) }}
+
+    {{form_row(form.Firstname) }}
+    
+    {{form_row(form.Mail) }}
+
+    {{form_row(form.Password) }}
+
+    {{form_row(form.Siret) }}
+
+    {{form_row(form.Doc) }}
+
+    {{form_row(form.Trades) }}
+    
+    <button type="button" class="btn btn-warning">Valider</button>
     {{ form_end(form) }}
-{% endblock %}
+    {% endblock %}
