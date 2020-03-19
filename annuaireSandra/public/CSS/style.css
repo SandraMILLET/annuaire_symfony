@@ -1,9 +1,3 @@
-*{
-    background:-webkit-linear-gradient(rgba(0, 78, 114, 0.9) 50%,
-     rgba(0, 138, 201, 0.9)) 0 0 no-repeat, url(../IMG/bgheader.png) 100% 0% no-repeat;
-    background-size: cover;
-    
-}
 h1{
     color: #ffffff;
     text-transform: uppercase;
@@ -15,3 +9,233 @@ form{
     color: #ffffff;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #E58900;
+    text-decoration: none;
+}
+
+#p1 {
+    background: -webkit-linear-gradient(rgba(0, 78, 114, 0.9) 50%, rgba(0, 138, 201, 0.9)) 0 0 no-repeat, url("./img/bgheader.png") 100% 0 no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    padding:20px;
+}
+
+#p1header {
+    background-color: rgb(65, 65, 65);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 60px;
+}
+
+#p2 {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#p3 {
+    background-color:rgb(65, 65, 65);
+    color:white;
+    width: 100%;
+    height: 50vh;
+}
+
+#p4 {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100vh;
+}
+
+.navga {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: #E58900;
+}
+
+.navmi {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navdr {
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.headmi {
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+
+.form-control {
+    width: 400px;
+}
+
+.headform {
+    margin: 40px;
+}
+
+.btn-outline-light {
+    background-color: #E58900;
+    color: white;
+    border-color: #E58900;
+}
+
+.btn-outline-light:hover {
+    color: #E58900;
+    border-color: #E58900;
+}
+
+.card-img-top{
+    height:200px;
+}
+
+.card-deck{
+    margin-bottom:2%;
+}
+
+.servl {
+    background: -webkit-linear-gradient(rgba(0, 78, 114, 0.7) 50%, rgba(0, 138, 201, 0.7)) 0 0 no-repeat, url("./img/servimg.jpg") 50% 0 no-repeat;
+    background-size: cover;
+    height: 50vh;
+}
+
+.actusnormes {
+    background: -webkit-linear-gradient(rgba(0, 78, 114, 0.7) 50%, rgba(0, 138, 201, 0.7)) 0 0 no-repeat, url("./img/normes.jpg") 55% 0 no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.servr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.card-body {
+    background-color: white;
+}
+
+.servtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.servsubtitle {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+
+.card-title {
+    color: #E58900;
+    font-size: 25px;
+}
+
+.centrerleboutton {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bigicon {
+    font-size: 50px;
+    color: #E58900;
+}
+
+.servbloc {
+    width: 70%;
+    height: auto;
+    text-align: center;
+}
+
+.servblocicon {
+    font-size: 25px;
+}
+
+.actulist {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    padding: 60px;
+}
+
+.media{
+    margin-top:20%;
+    margin-bottom:20%;
+}
+
+.imgactussize {
+    height: 64px;
+    width: 64px;
+}
+
+.mb-1 {
+    color: #E58900;
+}
+
+footer {
+    height: auto;
+    background-color: rgb(65, 65, 65);
+    display: flex;
+    align-items: center;
+    padding-bottom:20px;
+}
+
+.footertitle {
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    margin-bottom:0px;
+}
+
+.footerorg {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color:white;
+}
+
+.space-around{
+    justify-content: space-around;
+}
