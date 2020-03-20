@@ -375,7 +375,14 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-
+    form{
+        margin-left: 10px;
+    }
+    h1 {
+        color: #ffffff;
+        text-transform: uppercase;
+        margin-left: 40px;
+    }
     #p1header {
         display: none;
     }
