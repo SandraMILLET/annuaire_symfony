@@ -426,3 +426,16 @@ footer {
     width: 300px;
 }
 }
+
+/*page artisan*/
+.tel{
+    background-color: #E58900;
+    border-color: #E58900;
+    color: white;
+    border-radius : 15px;
+   }
+
+.tel:hover{
+    background-color: #ffffff;
+    color:#E58900;
+}   
