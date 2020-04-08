@@ -217,7 +217,28 @@ a:hover {
 .mb-1 {
     color: #E58900;
 }
+/*page artisan*/
+.tel{
+    background-color: #E58900;
+    border-color: #E58900;
+    color: white;
+    border-radius : 15px;
+    padding: 10px;
+   }
 
+.tel:hover{
+    background-color: #ffffff;
+    color:#E58900;
+}   
+
+.btnArt{
+    background-color: rgba(0, 78, 114, 0.7);
+    color: white;
+    border-color: rgba(0, 78, 114, 0.7);
+    border-radius : 15px;
+    padding : 5px;
+}
+/*---FOOTER---*/
 footer {
     height: auto;
     background-color: rgb(65, 65, 65);
@@ -427,15 +448,3 @@ footer {
 }
 }
 
-/*page artisan*/
-.tel{
-    background-color: #E58900;
-    border-color: #E58900;
-    color: white;
-    border-radius : 15px;
-   }
-
-.tel:hover{
-    background-color: #ffffff;
-    color:#E58900;
-}   
