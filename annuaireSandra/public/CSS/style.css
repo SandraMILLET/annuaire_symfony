@@ -253,12 +253,14 @@ a:hover {
 }
 .sstitreArt {
     background: -webkit-linear-gradient(rgba(0, 78, 114, 0.9) 50%, rgba(0, 138, 201, 0.9)) 0 0 no-repeat, url("../img/bgheader.png") 100% 0 no-repeat;
-    color: white;
+    color: #E58900;
+    font-weight: 600;
     padding: 10px;
     margin: 25px 0;
 }
 .sstitreArt2 {
-    color: white;
+    color: #E58900;
+    font-weight: 600;
     padding: 10px;
     margin: 25px 0;
 }
@@ -271,6 +273,7 @@ a:hover {
 .presentationTr {
     background: -webkit-linear-gradient(rgba(0, 78, 114, 0.9) 50%, rgba(0, 138, 201, 0.9)) 0 0 no-repeat, url("../img/bgheader.png") 100% 0 no-repeat;
     color: white;
+    padding-bottom : 35px;
 }
 
 .photo {
@@ -285,6 +288,8 @@ footer {
     display: flex;
     align-items: center;
     padding-bottom: 20px;
+    margin : 0;
+
 }
 
 .footertitle {
