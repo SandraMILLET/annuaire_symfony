@@ -250,6 +250,7 @@ a:hover {
 }
 .price{
     list-style: none;  
+    color : #E58900;
 }
 .sstitreArt {
     background: -webkit-linear-gradient(rgba(0, 78, 114, 0.9) 50%, rgba(0, 138, 201, 0.9)) 0 0 no-repeat, url("../img/bgheader.png") 100% 0 no-repeat;
@@ -274,6 +275,7 @@ a:hover {
     background: -webkit-linear-gradient(rgba(0, 78, 114, 0.9) 50%, rgba(0, 138, 201, 0.9)) 0 0 no-repeat, url("../img/bgheader.png") 100% 0 no-repeat;
     color: white;
     padding-bottom : 35px;
+    margin : 0;
 }
 
 .photo {
