@@ -283,6 +283,10 @@ a:hover {
     width: 300px;
     height: 200px;
 }
+.photoTF{
+    width: 150px;
+    height: 100px;
+}
 .buttn{
     margin : 45px 0;
 }
@@ -297,7 +301,9 @@ a:hover {
     font-size : 36px;
 }
 .logoArt{
-    margin:40px 10px;
+    margin:30px 5px;
+    width: 80px;
+    height:80px;
 }
 
 /*---FOOTER---*/
