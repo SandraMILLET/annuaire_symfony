@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Inscription Professionnel {% endblock %}
+
+{% block body %}
+<div id="p1">
+    <h1> Inscription Professionnel </h1>
+    <div class="container">
+        <div class="row">
+        
+            {{ form_start(form) }}
+
+            {{ form_label(form.Name) }}
+            {{form_widget(form.Name) }}
+
+            {{form_row(form.Firstname) }}
+
+            {{form_row(form.Mail) }}
+
+            {{form_row(form.Password) }}
+
+            {{form_row(form.Siret) }}
+
+            {{form_row(form.Doc) }}
+
+            {{form_row(form.Trades) }}
+
+            <button type="button" class="btn btn-warning">Valider</button>
+        </div>
+        
+    </div></div>
+    {{ form_end(form) }}
+    {% endblock %}
