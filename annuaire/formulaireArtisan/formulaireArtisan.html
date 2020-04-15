@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+  <title>Formulaire artisan</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <form class="well form-horizontal" action=" " method="post" id="construct_form">
+      <fieldset>
+
+        <!-- Form Name -->
+        <legend>Construction de page </legend>
+
+        <!-- SOCIETE input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Nom de la société</label>
+          <div class="col-md-4 inputGroupContainer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="societe_name" placeholder="Nom de la société" class="form-control" type="text">
+          </div>
+        </div>
+
+      <!-- Send logo -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="avatar">Envoi Logo</label>
+        <div class="col-md-4 inputGroupContainer">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-download-alt"></i></span>
+          <input type="file" class="form-control" name="avatar" accept="image/png, image/jpeg">
+        </div>
+      </div>
+
+        <!-- RESPONSABLE input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Nom du responsable</label>
+          <div class="col-md-4 inputGroupContainer">
+
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="responsable_name" placeholder="Nom du responsable" class="form-control" type="text">
+
+          </div>
+        </div>
+
+        <!-- ADRESSE input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Adresse</label>
+          <div class="col-md-4 inputGroupContainer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input name="adresse" placeholder="Adresse" class="form-control" type="text">
+          </div>
+        </div>
+
+        <!-- CP input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Code Postal</label>
+          <div class="col-md-4 inputGroupContainer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input name="CP" placeholder="Code Postal" class="form-control" type="text">
+          </div>
+        </div>
+        <!-- VILLE input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Ville</label>
+          <div class="col-md-4 inputGroupContainer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input name="ville" placeholder="Ville" class="form-control" type="text">
+          </div>
+        </div>
+
+        <!-- TEL input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Téléphone</label>
+          <div class="col-md-4 inputGroupContainer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+            <input name="phone" placeholder="0468686868" class="form-control" type="text">
+          </div>
+        </div>
+
+        <!-- EMAIL input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">E-Mail</label>
+          <div class="col-md-4 inputGroupContainer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input name="email" placeholder="E-Mail" class="form-control" type="text">
+          </div>
+        </div>
+
+        <!-- social network input-->
+        <div class="col-md-6 form-group">
+          <label for="basic-url" class="col-md-4 control-label">Lien Facebook</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Votre page</span>
+            </div>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          </div>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="basic-url" class="col-md-4 control-label">Lien Instagram</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Votre page</span>
+            </div>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          </div>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="basic-url" class="col-md-4 control-label">Lien Linkedin</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Votre profil</span>
+            </div>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          </div>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="basic-url" class="col-md-4 control-label">Lien Pinterest</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Votre page</span>
+            </div>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          </div>
+        </div>
+
+        <!-- Select Activité -->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Activité</label>
+          <div class="col-md-4 selectContainer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="activité" class="form-control selectpicker">
+              <option value=" ">Quel est votre activité ?</option>
+              <option>Plombier</option>
+              <option>Coiffeur</option>
+              <option>Maçon</option>
+              <option>Esthéticienne</option>
+              <option>Chef à domicile</option>
+              <option>Informaticien</option>
+              <option>Infirmier</option>
+              <option>Electricien</option>
+              <option>Couvreur</option>
+              <option> Jardinier</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Text area Description -->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Description</label>
+          <div class="col-md-4 inputGroupContainer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+            <textarea class="form-control" name="description"
+              placeholder="Description de votre société, de vous et/ou de votre équipe"></textarea>
+          </div>
+        </div>
+
+        <!-- description photo -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="avatar">Envoi Photos</label>
+          <div class="col-md-4 inputGroupContainer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-download-alt"></i></span>
+            <input type="file" class="form-control" name="avatar" accept="image/png, image/jpeg" multiple>
+          </div>
+        </div>
+
+        <!-- Text area Travaux réalisés -->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Travaux réalisés</label>
+          <div class="col-md-4 inputGroupContainer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-wrench"></i></span>
+            <textarea class="form-control" name="description"
+              placeholder="Description d'une de vos réalisation"></textarea>
+          </div>
+        </div>
+
+        <!-- TR photo -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="avatar">Envoi Photos</label>
+          <div class="col-md-4 inputGroupContainer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-download-alt"></i></span>
+            <input type="file" class="form-control" name="avatar" accept="image/png, image/jpeg" multiple>
+          </div>
+        </div>
+
+
+        <!-- Services + Tarifs-->
+        <div class="form-group">
+          <label class="col-md-6 control-label" for="service.tarifs">Services + Tarifs</label>
+          <div class="col-md-6 inputGroupContainer">
+            <div id="champs">
+            <input type="text" name="titre[]" />
+            <input type="text" name="contenu[]" />
+          </div>
+          </div>
+          </div>
+          <script type="text/javascript" >
+            var div = document.getElementById('champs');
+            function addInput(nam){
+                var input = document.createElement("input");
+                input.name = name;
+                div.appendChild(input);
+            }
+            function addField() {
+                addInput("titre[]");
+                addInput("contenu[]");
+                div.appendChild(document.createElement("br"));
+            }
+          </script>
+          <button type="button" onclick="addField()">+</button>
+          <input type="submit" />
+
+        <!-- Success message -->
+        <div class="alert alert-success" role="alert" id="success_message">Succès <i
+            class="glyphicon glyphicon-thumbs-up"></i></div>
+
+        <!-- Button -->
+        
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-warning">Envoyer<span class="glyphicon glyphicon-send"></span></button>
+          </div>
+        </div>
+
+       
+
+      </fieldset>
+    </form>
+  </div>
+  </div><!-- /.container -->
+
+
+
+  
+
+
+</body>
+
+</html>
