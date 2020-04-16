@@ -14,7 +14,6 @@ class InscriptionUser
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Assert\NotBlank
      */
     private $id;
 
@@ -25,43 +24,36 @@ class InscriptionUser
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="bigint")
-     * @Assert\NotBlank
      */
     private $codepostal;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      */
     private $ville;
 
     /**
      * @ORM\Column(type="bigint")
-     * @Assert\NotBlank
      */
     private $tel;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=10, minMessage="Le numéro de téléphone doit faire au moins {{ limit }} caractères.")
      */
     private $mail;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      */
     private $mdp;
 

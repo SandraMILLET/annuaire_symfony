@@ -30,7 +30,7 @@ class InscriptionUserController extends AbstractController
                     $em->persist($inscriptionUser);
                     $em->flush();
 
-                   return $this->redirectToRoute('Inscription_user_succes');
+                   return $this->redirectToRoute('inscription_user');
                }
         return $this->render('inscription_user/index.html.twig', [
             'form'=> $form-> createView()
