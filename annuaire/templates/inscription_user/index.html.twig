@@ -3,8 +3,13 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-<div>
+<h3>Veuillez fournir les informations demandés ! </h3>
 
+  {{ form_start(form) }}
+
+  {# Les erreurs générales du formulaire. #}
+  {{ form_errors(form) }}
+  <div class="form-group">
 {{form_row(form.nom)}}
 {{form_row(form.prenom)}}
 {{form_row(form.adresse)}}
@@ -15,5 +20,6 @@
 {{form_row(form.mdp)}}
 
 <button type="submit">Valider</button>
+{{ form_end(form) }}
 </div>
 {% endblock %}
