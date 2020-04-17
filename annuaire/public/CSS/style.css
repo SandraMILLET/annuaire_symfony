@@ -224,8 +224,10 @@ a:hover {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: auto;
     padding: 20px;
+}
+
+
 }
 /*page artisan*/
 .headArt {

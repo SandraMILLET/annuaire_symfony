@@ -4,31 +4,31 @@
 
 {% block body %}
 
-<div classe="p1">
+<div id="p1">
     <h1> Inscription </h1>
     <h3>Veuillez fournir les informations demandés ! </h3>
     <div class="formUser">
-        {{ form_start(form) }}
+        
         {{form_label(form.nom)}}
         {{form_widget(form.nom) }}
         {{form_label(form.prenom)}}
-        {{form_label(form.prenom)}}
+        {{form_widget(form.prenom)}}
         {{form_label(form.adresse)}}
-        {{form_label(form.adresse)}}
+        {{form_widget(form.adresse)}}
         {{form_label(form.codepostal)}}
-        {{form_label(form.codepostal)}}
+        {{form_widget(form.codepostal)}}
         {{form_label(form.ville)}}
-        {{form_label(form.ville)}}
+        {{form_widget(form.ville)}}
         {{form_label(form.tel)}}
-        {{form_label(form.tel)}}
+        {{form_widget(form.tel)}}
         {{form_label(form.mail)}}
-        {{form_label(form.mail)}}
+        {{form_widget(form.mail)}}
         {{form_label(form.mdp)}}
-        {{form_label(form.mdp)}}
+        {{form_widget(form.mdp)}}
         <button type="submit" class="btn btn-warning">Valider</button>
     </div>
 </div>
 
 
-{{ form_end(form) }}
+
 {% endblock %}
