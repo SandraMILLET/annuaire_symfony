@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\InscriptionUserRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class InscriptionUser
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -16,6 +17,17 @@ class InscriptionUser
      * @ORM\Column(type="integer")
      */
     private $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="8", minMessage="Votre mot de passe doit contenir au minimum 8 caractères")
+     */
+    private $mdp;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -28,12 +40,12 @@ class InscriptionUser
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $adresse;
 
     /**
-     * @ORM\Column(type="bigint")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $codepostal;
 
@@ -43,23 +55,41 @@ class InscriptionUser
     private $ville;
 
     /**
-     * @ORM\Column(type="bigint")
+     * @ORM\Column(type="string", length=255)
      */
     private $tel;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $mail;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $mdp;
+/**
+ * @Assert\EqualTo(propertyPath="mdp", message="Saisissez le même mot de passe")
+ */
+    public $confirm_password;
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getMdp(): ?string
+    {
+        return $this->mdp;
+    }
+
+    public function setMdp(string $mdp): self
+    {
+        $this->mdp = $mdp;
+
+        return $this;
     }
 
     public function getNom(): ?string
@@ -91,7 +121,7 @@ class InscriptionUser
         return $this->adresse;
     }
 
-    public function setAdresse(string $adresse): self
+    public function setAdresse(?string $adresse): self
     {
         $this->adresse = $adresse;
 
@@ -103,7 +133,7 @@ class InscriptionUser
         return $this->codepostal;
     }
 
-    public function setCodepostal(string $codepostal): self
+    public function setCodepostal(?string $codepostal): self
     {
         $this->codepostal = $codepostal;
 
@@ -133,28 +163,11 @@ class InscriptionUser
 
         return $this;
     }
+    public function eraseCredentials(){}
 
-    public function getMail(): ?string
-    {
-        return $this->mail;
-    }
+    public function getSalt() {}
 
-    public function setMail(string $mail): self
-    {
-        $this->mail = $mail;
-
-        return $this;
-    }
-
-    public function getMdp(): ?string
-    {
-        return $this->mdp;
-    }
-
-    public function setMdp(string $mdp): self
-    {
-        $this->mdp = $mdp;
-
-        return $this;
+    public function getRoles(){
+        return ['ROLE_USER'];
     }
 }

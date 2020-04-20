@@ -2,31 +2,33 @@
 
 namespace App\Form;
 
-use App\Entity\InscriptionUser;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
-class ConnexionType extends AbstractType
+class InscriptionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
+        $builder            
+            ->add('email')
             ->add('nom')
             ->add('prenom')
             ->add('adresse')
             ->add('codepostal')
             ->add('ville')
             ->add('tel')
-            ->add('mail')
-            ->add('mdp')
+            ->add('mdp', PasswordType::class)
+            ->add('confirm_password', PasswordType::class)
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => InscriptionUser::class,
+            'data_class' => User::class,
         ]);
     }
 }
