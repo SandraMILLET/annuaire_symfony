@@ -2,7 +2,7 @@
 {% block title %}Connexion{% endblock %}
 {% block body %}
 <div id="p2">
-<form action="">
+<form action="{{ path('security_login') }}" method="post">
   <div class="form-group">
   <input placeholder="Votre adresse email" required name="_username" type="texte" class="form-control">
   </div>
