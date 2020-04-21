@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Votre recherche
+{% endblock %}
+
+{% block body %}
+	<div id="p1">
+
+		<div class="container-fluid">
+
+			<div class="row">
+
+				<div class="col-sm-12 headmi">
+
+					<span class="respmod mb-5">Résultat pour "Menuisier"
+						<br>
+						<p class="h6">17000 professionnels trouvés</p>
+					</span>
+
+					<form class="headform">
+						<div class="form-group">
+							<select class="form-control">
+								<option>Plombier</option>
+								<option>Peintre</option>
+								<option>Electricien</option>
+								<option>Menuisier</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<select class="form-control">
+								<option>Carcassonne</option>
+								<option>Limoux</option>
+								<option>Couiza</option>
+								<option>Quillan</option>
+								<option>Narbonne</option>
+								<option>Lézignan</option>
+								<option>Castelnaudary</option>
+							</select>
+						</div>
+						<a href="/rechercher">
+							<button type="button" class="btn btn-outline-light">Rechercher</button>
+						</a>
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div id="listResult" class="container-fluid">
+		<div class="row col-10 mt-5 mr-3 mb-5 ml-3">
+			<div class="col-10 card">
+				<h3 class="card-header">M.PIEDEBICHE Albert</h3>
+				<div class="card-body">
+					<p class="card-text">30 rue de nulle part
+					<br>11???
+					</p>
+				</div>
+				<div class="card-body">
+					<a href="#" class="card-link">06 00 00 00 01</a>
+					<a href="#" class="card-link">Consulter</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+{% endblock %}

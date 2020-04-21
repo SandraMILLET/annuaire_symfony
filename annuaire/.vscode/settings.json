@@ -1,0 +1,5 @@
+{
+    "twig-language-2.formatting": false,
+    "twig-language-2.newLine": false,
+    "twig-language-2.endComma": "never"
+}

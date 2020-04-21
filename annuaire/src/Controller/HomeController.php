@@ -16,4 +16,12 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+
+    /**
+     * @Route("/rechercher", name="rechercher")
+     */
+    public function rechercher()
+    {
+        return $this->render('rechercher/index.html.twig');
+    }
 }
