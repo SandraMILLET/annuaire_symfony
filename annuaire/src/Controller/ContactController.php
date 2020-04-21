@@ -18,6 +18,12 @@ class ContactController extends AbstractController
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+   
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('succes','Votre email à vien été envoyé');
+        }
 
         return $this->render('contact/contact.html.twig', [
             'controller_name' => 'ContactController',

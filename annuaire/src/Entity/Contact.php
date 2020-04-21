@@ -19,21 +19,20 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank()
      * @Assert\Email()
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank()
+
      * @Assert\Length(min=3 max=40)
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank()
+
      * @Assert\Regex(
      * pattern="/[0-9]{10}/", message="Veuillez renseigner un numéro de téléphone valide"
      * )
@@ -42,14 +41,14 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank()
+
      * @Assert\Length(min=3 max=40)
      */
     private $object;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Assert\NotBlank()
+
      * @Assert\Length(min=10) 
      */
     private $message;
