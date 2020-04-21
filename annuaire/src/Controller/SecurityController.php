@@ -48,5 +48,9 @@ class SecurityController extends AbstractController
    public function login() {
        return $this->render('security/login.html.twig');
 
+       if ($form->isSubmitted() && $form->isValid()) {
+       return $this->redirectToRoute('home');
+       }
+
    }
 }
