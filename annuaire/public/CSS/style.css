@@ -237,7 +237,24 @@ a:hover {
     padding: 20px;
 }
 
+/* page contact */
 
+#center {
+    display: flex;
+   
+    flex-direction: column;
+    align-items: center;
+}
+
+.envoyer{
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    margin-left: 0;
+
+}
 
 /*page artisan*/
 .headArt {

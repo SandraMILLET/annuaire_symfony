@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CONTACT{% endblock %}
+
+{% block body %}
+<div id="p1">
+<h1> CONTACT </h1>
+<div class="row">
+
+
+<div class="col-md-6">
+<h1> texte </h1>
+</div>
+
+<div id="center" class="col-md-6">
+<h1> input </h1>
+
+{{form_start(form)}}
+
+{{ form_end(form) }}
+
+<div class="envoyer">
+
+ 
+    
+ <button type="submit" class="btn btn-warning">Envoyer</button>
+</div>
+
+</div>
+
+
+</div>
+
+
+
+{% endblock %}

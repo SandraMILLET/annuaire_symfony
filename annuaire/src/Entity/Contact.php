@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Contraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
@@ -18,28 +19,45 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=3 max=40)
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\Regex(
+     * pattern="/[0-9]{10}/", message="Veuillez renseigner un numéro de téléphone valide"
+     * )
      */
     private $tel;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=3 max=40)
      */
     private $object;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=10) 
      */
     private $message;
+
+    /**
+     * @var Property|null
+     */
+    private $property;
 
     public function getId(): ?int
     {
@@ -105,4 +123,23 @@ class Contact
 
         return $this;
     }
+        /**
+         * @Return Property|null $property
+         */
+    public function getProperty(): ?Property
+    {
+        return $this->property;
+    }
+
+    /**
+     * @Param  Property|null $property 
+     * @Return Contact
+     */
+
+    public function setProperty(?Property $property): contact
+    {
+       $this->property = $property;
+       return $this;
+    }
 }
+
