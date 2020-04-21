@@ -9,15 +9,26 @@
 
 
 <div class="col-md-6">
-<h1> texte </h1>
+
+
+<div class="envoyer">
+<p class="txt">Vous avez des questions ou <br>peut-être rencontrez-vous <br>un problème sur notre site ? <br><br>Contactez-nous</p>
+
+</div>
 </div>
 
 <div id="center" class="col-md-6">
-<h1> input </h1>
+
 
 {{form_start(form)}}
+{{ form_row(form.email, {'label':'Adresse élétronique','attr': {'placeholder':'Votre adresse email'}}) }}
+{{ form_row(form.name, {'label':'Votre Nom et Prénom','attr': {'placeholder':'Nom/Prénom'}}) }}
+{{ form_row(form.tel, {'label':'Votre Numéro de Téléphone','attr': {'placeholder':'06 ** ** ** **'}}) }}
+{{form_row(form.object, {'label':'Sujet de votre Message','attr': {'placeholder':'Sujet'}}) }}
+{{ form_row(form.message, {'label':'Votre Message','attr': {'placeholder':'Veulliez écrire votre message'}}) }}
 
-{{ form_end(form) }}
+
+
 
 <div class="envoyer">
 
@@ -25,6 +36,10 @@
     
  <button type="submit" class="btn btn-warning">Envoyer</button>
 </div>
+
+
+
+{{ form_end(form) }}
 
 </div>
 
