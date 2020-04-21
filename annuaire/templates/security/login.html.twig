@@ -2,6 +2,7 @@
 {% block title %}Connexion{% endblock %}
 {% block body %}
 <div id="p2">
+<h1> Connexion </h1>
 <form action="{{ path('security_login') }}" method="post">
   <div class="form-group">
   <input placeholder="Votre adresse email" required name="_username" type="texte" class="form-control">
@@ -13,6 +14,7 @@
 
 <div class="form-group">
 <button type="submit" class="btn btn-warning">Se connecter</button>
+<p>Vous n'êtes pas inscrit ? <a href="{{ path('security_registration') }}">Inscrivez-vous gratuitement</a> </p>
 
 </div>
 </form>
