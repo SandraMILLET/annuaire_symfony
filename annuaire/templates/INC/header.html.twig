@@ -15,16 +15,14 @@
                 <a href="#">Actus</a>
 
                 <a href="#">Contact</a>
-
+                 <a href="{{ path('security_registration') }}">S'inscrire</a>
+                
+            {% if not app.user %}
                 <a href="{{ path('security_login') }}">Se Connecter</a>
-
-               <a href="#">S'inscrire</a>
-
-                <a href="#">Inscription Pro</a>
-
-                <a href="#">
-                    <i class='lni lni-search-alt'></i>
-                </a>
+            {% if else %}
+                <a href="{{ path('security_logout') }}">Déconnexion</a>
+            {% endif %}
+                <a href="#"><i class='lni lni-search-alt'></i></a>
 
             </div>
 
@@ -37,31 +35,31 @@
 </div>
 
 <div id="p1headerresp">
-            <div id="menuToggle">
-                <input type="checkbox"/>
-                <span></span>
-                <span></span>
-                <span></span>
-                <ul id="menu">
-                    <a href="#">
-                        <li>Actus</li>
-                    </a>
-                    <a href="#">
-                        <li>Contact</li>
-                    </a>
-                    <a href="#">
-                        <li>Se connecter</li>
-                    </a>
-                  <!--  <a href=" path('inscription_client')}}">
+    <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+            <a href="#">
+                <li>Actus</li>
+            </a>
+            <a href="#">
+                <li>Contact</li>
+            </a>
+            <a href="#">
+                <li>Se connecter</li>
+            </a>
+            <!--  <a href=" path('inscription_client')}}">
                         <li>S'inscrire</li>
                     </a>
                     <a href=" path('inscription_pro')}}"> -->
-                        <li>Inscription Pro</li>
-                    </a>
-                    <a href="#">
-                        <i class='lni lni-search-alt'></i>
-                    </a>
-                </ul>
-            </div>
-            <div class="navga">ANNUAIRE DE L'AUDE</div>
+            <li>Inscription Pro</li>
+            </a>
+            <a href="#">
+                <i class='lni lni-search-alt'></i>
+            </a>
+        </ul>
+    </div>
+    <div class="navga">ANNUAIRE DE L'AUDE</div>
 </div>
