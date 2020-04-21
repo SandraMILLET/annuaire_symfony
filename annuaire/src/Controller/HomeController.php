@@ -22,6 +22,13 @@ class HomeController extends AbstractController
      */
     public function rechercher()
     {
-        return $this->render('rechercher/index.html.twig');
+        $noms = ["M.PIEDEBICHE Albert", "M.TUNING Henri", "Mme LAFONTE Murielle", "Mme CASTAGNE Magalie"];
+
+        return $this->render(
+            'rechercher/index.html.twig',
+            [
+                'pros' => $noms
+            ]
+        );
     }
 }
