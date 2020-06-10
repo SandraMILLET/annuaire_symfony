@@ -1,0 +1,160 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artisan{% endblock %}
+
+{% block body %}
+{% block leaflet %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+{% endblock %}
+<!--head-->
+<div id="p1">
+    <div class="container-fluid">
+        <div class="row  d-flex justify-content-center">
+            <div class="col-md-12- text-center headArt">
+                <div class="nomA">
+                <img class="logocompany" src="{{ vich_uploader_asset(company,'imageFile') }}" alt="{{ company.imageFile }}"><br>
+                    {{ company.society }}<br>
+                    <!--marche pas-->
+                    {{ company.activity.metier }}
+                </div>
+                <div>
+                    {{ company.responsable}}
+
+                    <p>{{ company.address }}<br>{{ company.codepostal }} {{ company.ville }}</p>
+                </div>
+                <div class="col-md-12 coordonnes">
+                    <a class="tel" href="tel:+33608000000">{{ company.phone }}</a>
+                    <a class="tel" href="mailto:nullepart@gmail.com">{{ company.email }}</a><br>
+                </div>
+                <div class="siret">
+                    <p>Enregistré sous le numéro SIRET :<span> {{ company.SIRET }}</span></p>
+                </div>
+                <div class="col-md-12">
+                {% if company.reseaux == NULL %}
+                
+                {% else %}
+                    <a href="{{ company.reseaux.facebook }}"><img class="logosocial" src="/img/facebook.png" alt="facebook"></a>
+                    <a href="{{ company.reseaux.instagram }}"><img class="logosocial" src="/img/instagram.png" alt="instagram"></a>
+                    <a href="{{ company.reseaux.linkedin }}"><img class="logosocial" src="/img/linkedin.png" alt="linkedin"></a>
+                    <a href="{{ company.reseaux.youtube }}"><img class="logosocial" src="/img/youtube.png" alt="facebook"></a>
+                    <a href="{{ company.reseaux.twitter }}"><img class="logosocial" src="/img/twitter.png" alt="facebook"></a>
+                    <a href="{{ company.reseaux.pinterest }}"><img class="logosocial" src="/img/pinterest.png" alt="facebook"></a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <!--end head-->
+
+    <!--center page and aside-->
+    <div class="container-fluid centerAside">
+        <div class="row">
+            <section class="col-sm-9 col-md-9">
+                <div class="row presentation">
+                    <div class="col-md-12 sstitreArt">
+                        <h2>Présentation</h2>
+                    </div>
+                    {{ company.presentation | raw }}
+
+                    <!--Service-->
+                    <div class="col-md-12 sstitreArt">
+                        <h2>Services proposés</h2>
+                    </div>
+                    {{ company.service | raw }}
+
+                    <!--Book-->
+                    <div class="col-md-12 sstitreArt">
+                        <h2>Projets réalisés</h2>
+                    </div>
+                    {{ company.book | raw }}
+
+                    <!-- Tarifs-->
+                    <div class="col-md-12 sstitreArt">
+                        <h2>Tarifs Fixes</h2>
+                    </div>
+                    {{ company.tarif | raw }}
+
+                    <!-- insertion map leaflet-->
+
+
+                    <!-- fin insertion map leaflet-->
+
+            </section>
+            <!--Aside-->
+            <div class="col-md-3 border-left border-warning text-center aside">
+                <div class="row">
+                    <aside class="col-md-12">
+                        <div class="col-md-12 horaire">
+                            <h3 class="h3Art">Horaires</h3>
+                        </div>
+                        {{ company.horaire | raw}}
+
+                        <div class="col-md-12 buttn">
+                            <button class="btnArt">Rendez-vous</button>
+                        </div>
+                        <div class="col-md-12 buttn">
+                            <button class="btnArt">Devis</button>
+                        </div>
+                        <div class="col-md-12 buttn">
+                            <button class="btnArt">Offres d'emploi</button>
+                            {{ company.emploi | raw }}
+                        </div>
+                        <h3 class="h3Art">Fournisseurs</h3>
+                        <p>{{ company.fournisseur | raw }}</p>
+                        <div class="col-md-12">
+                            <h3 class="h3Art">Retrouvez-nous sur : </h3>
+                            <a href="https://placeholder.com/" target="_blank"><img class="reseaux"
+                                    src="https://via.placeholder.com/150" alt="pointmap"></img></a>
+                            <a href="https://placeholder.com/" target="_blank"><img class="reseaux"
+                                    src="https://via.placeholder.com/150" alt="instagram"></img></a>
+                            <a href="https://placeholder.com/" target="_blank"><img class="reseaux"
+                                    src="https://via.placeholder.com/150" alt="facebook"></img></a>
+                            <a href="https://placeholder.com/" target="_blank"><img class="reseaux"
+                                    src="https://via.placeholder.com/150" alt="twitter"></img></a>
+                            <a href="https://placeholder.com/" target="_blank"><img class="reseaux"
+                                    src="https://via.placeholder.com/150" alt="Linkedin"></img></a>
+                            <a href="https://placeholder.com/" target="_blank"><img class="reseaux"
+                                    src="https://via.placeholder.com/150" alt="Pinterest"></img></a>
+                            <a href="https://placeholder.com/" target="_blank"><img class="reseaux"
+                                    src="https://via.placeholder.com/150" alt="youtube"></img></a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+            <!--end aside-->
+        </div>
+        <!--container-fluid-->
+    </div>
+    <!--end center page and aside-->
+    <div id="mapid">
+
+        <script>
+            var mymap = L.map('mapid').setView([43.2167, 2.35], 13);
+
+            L.tileLayer(
+                'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                    maxZoom: 18,
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    id: 'mapbox/streets-v11',
+                    tileSize: 512,
+                    zoomOffset: -1
+                }).addTo(mymap);
+
+            var OpenStreetMap_France = L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                maxZoom: 20,
+                attribution: '&copy; Openstreetmap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            });
+        </script>
+    </div>
+    <!--bas center-->
+
+    {% endblock %}

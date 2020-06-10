@@ -1,0 +1,56 @@
+{% extends 'adminBase.html.twig' %}
+
+{% set indexAdmin = path('users') %}
+{% set edit = path('edit', {'id': user.id}) %}
+{% set delete = path('delete', {'id': user.id}) %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+<h1>User</h1>
+
+<table class="table">
+	<tbody>
+		<tr>
+			<th>Id</th>
+			<td>{{ user.id }}</td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td>{{ user.email }}</td>
+		</tr>
+		<tr>
+			<th>Nom</th>
+			<td>{{ user.nom }}</td>
+		</tr>
+		<tr>
+			<th>Prenom</th>
+			<td>{{ user.prenom }}</td>
+		</tr>
+		<tr>
+			<th>Adresse</th>
+			<td>{{ user.adresse }}</td>
+		<br>
+			<th>Codepostal</th>
+			<td>{{ user.codepostal }}</td>
+		<br>
+			<th>Ville</th>
+			<td>{{ user.ville }}</td>
+		</tr>
+		<tr>
+			<th>Tel</th>
+			<td>{{ user.tel }}</td>
+		</tr>
+		<tr>
+			<th>Roles</th>
+			<td>{{ user.roles[0] }}</td>
+
+		</tr>
+	</tbody>
+</table>
+
+<a class="btn btn-info" href="{{ indexAdmin }}">Retour</a>
+<a class="btn btn-info" href="{{ edit }}">Modifier</a>
+<a class="btn btn-info" href="{{ delete }}">Supprimer</a>
+
+{% endblock %}

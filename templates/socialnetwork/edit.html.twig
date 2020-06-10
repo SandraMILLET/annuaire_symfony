@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Socialnetwork{% endblock %}
+
+{% block body %}
+    <h1>Edition des réseaux sociaux</h1>
+
+    {{ include('socialnetwork/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('socialnetwork_index') }}">Retour à la liste</a>
+
+    {{ include('socialnetwork/_delete_form.html.twig') }}
+{% endblock %}

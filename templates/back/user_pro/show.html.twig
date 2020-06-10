@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserPro{% endblock %}
+
+{% block body %}
+<h1>Utilisateur professionnel</h1>
+
+<table class="table">
+
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ user_pro.id }}</td>
+        </tr>
+        <tr>
+            <th>Logo</th>
+            <td><img class="logocompany" src="{{ vich_uploader_asset(user_pro,'imageFile') }}" alt="{{ user_pro.imageFile }}"></td>
+        </tr>
+        <tr>
+            <th>Société</th>
+            <td>{{ user_pro.society }}</td>
+        </tr>
+    <tr>
+            <th>SIRET</th>
+            <td>{{ user_pro.SIRET }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <!--debut erreur insertion -->
+            <td>{{ user_pro.pro.nom }}</td>
+
+        </tr>
+        <tr>
+            <th>Prénom</th>
+            <td>{{ user_pro.pro.prenom }}</td>
+        </tr>
+        
+        <tr>
+            <th>Adresse</th>
+            <td>{{ user_pro.pro.adresse }}</td>
+        <br>
+            <th>Code postal</th>
+            <td>{{ user_pro.pro.codepostal }}</td>
+        <br>
+            <th>Ville</th>
+            <td>{{ user_pro.pro.ville }}</td>
+
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ user_pro.pro.email }}</td>
+
+        </tr>
+        <tr>
+            <th>Téléphone</th>
+            <td>{{ user_pro.pro.tel }}</td>
+
+        </tr>
+        <tr>
+            <th>Mot de passe</th>
+            <td>{{ user_pro.pro.password }}</td>
+            <!--fin erreur insertion-->
+
+        </tr>
+    </tbody>
+</table>
+
+<a href="{{ path('user_pro_index') }}">Retour à la liste</a>
+
+<a href="{{ path('user_pro_edit', {'id': user_pro.id}) }}">Edition</a>
+
+{{ include('back/user_pro/_delete_form.html.twig') }}
+{% endblock %}

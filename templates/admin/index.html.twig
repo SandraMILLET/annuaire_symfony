@@ -1,0 +1,54 @@
+{% extends 'adminBase.html.twig' %}
+
+{% set newUser = path("new") %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+
+<div id="center" class="col-md-9 offset-md-1">
+
+	<table class="container">
+		<thead class="table">
+			<tr>
+				<th class="space">Id</th>
+				<th class="space">Email</th>
+				<th class="space">Nom</th>
+				<th class="space">Prenom</th>
+				<th class="space">Adresse<br>
+				Codepostal<br>
+				Ville</th>
+				<th class="space">Tel</th>
+				<th class="space">Roles</th>
+				<th class="space">actions</th>
+			</tr>
+		</thead>
+		<tbody class="table table-striped">
+			{% for user in user %}
+
+			{% set readUser = path("read", {'id': user.id}) %}
+			{% set editUser = path("edit", {'id': user.id}) %}
+			{% set deleteUser = path("delete", {'id': user.id}) %}
+
+			<tr>
+				<td class="space"><a href="{{ readUser }}">{{ user.id }}</a></td>
+				<td class="space">{{ user.email }}</td>
+				<td class="space">{{ user.nom }}</td>
+				<td class="space">{{ user.prenom }}</td>
+				<td class="space">{{ user.adresse }}<br>
+				{{ user.codepostal }}<br>
+				{{ user.ville }}</td>
+				<td class="space">{{ user.tel }}</td><br>
+				<td class="space">{{ user.roles[0]}}</td>
+				<td class="space">
+					<a class="btn btn-warning" href="{{ editUser }}">Modifier</a>
+					<a class="btn btn-warning" href="{{ deleteUser }}">Supprimer</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a id="marg" href="{{ newUser }}"><button id="marg2" class="btn btn-warning">Ajouter</button></a>
+
+</div>
+{% endblock %}

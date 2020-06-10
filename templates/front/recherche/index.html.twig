@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Votre recherche
+{% endblock %}
+
+{% block body %}
+
+{% set actusIndexUrl = path('actus_index') %}
+{% set rechercherIndexUrl = path('rechercher_index') %}
+
+<div id="p1">
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="col-sm-12 headmi">
+				<!--filtre de recherche depuis le home-->
+				{#{% if app.request.method == 'POST' %}
+			{% if recherche|length > 0 %}
+			<h1>Aucun résultat pour votre recherche</h1>
+			else %}
+			<h2>Résultat de la recherche</h2>-->#}
+
+				<!--affichage des requetes si existante sinon afficher "aucun resultat"-->
+				{#{% if company in companies > 0 %}
+			<h2> Aucun résultat</h2>
+			{% else %}#}
+
+
+				{% for company in companies %}
+				<div class="respmod mb-5">Résultat pour {#{{ company.activity.categorie }}#}"categorie" à
+					{{ company.ville }}
+					<!--métiers et catégorie, ne marche pas dans la requete All-->
+					<br>
+					<p class="h6">{{ companies|length }} professionnel(s) trouvé(s)</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid mt-5 d-flex justify-content-around">
+	<div class="row col-11 d-flex justify-content-around">
+		<div class="card mb-5 border-primary">
+			<h4 class="card-header">{#{{ company.activity.categorie }}#} - Aude</h4>
+			<div class="card-body">
+			<img class="logocompany" src="{{ vich_uploader_asset(company,'imageFile') }}" alt="{{ company.imageFile }}">
+				<h6 class="card-title">{{ company.society }}</h6>
+				<h6 class="card-subtitle text-muted">{{ company.address }}
+					<br>{{ company.codepostal }}
+				</h6>
+			</div>
+			
+			<div class="card-body">
+				<p class="card-text">{{ company.presentation | raw  }}</p>
+			</div>
+			<div class="card-body">
+				<a href="{{ company.phone }}" id="telUser" class="btn tel mr-3" role="button">{{ company.phone }}</a>
+				<a href="{{ company.email }}" id="telUser" class="btn tel mr-3" role="button">{{ company.email }}</a>
+				<a href="{{ path('company_show', {'id':company.id}) }}" class="btn consulterBtn"
+					role="button">Consulter</a>
+			</div>
+		</div>
+		{% endfor %}
+
+		<!-- endif %}-->
+	</div>
+	<!-- endif %}-->
+</div>
+{#{% endif %}#}
+<div id="callToAction" class="container-fluid">
+	<div class="p1 jumbotron bg-primary text-center">
+		<h1 class="display-3">Besoin d'un conseil ?</h1>
+		<p class="lead" style="color: white;">Consultez notre page
+			<a href="{{ actusIndexUrl }}">Actus</a>
+		</p>
+		<p><a class="btn btn-lg" href="{{ actusIndexUrl }}" role="button"
+				style="background-color: #E58900; color: white;">En savoir plus
+				!</a>
+		</p>
+	</div>
+</div>
+
+{# --- IMPLEMENTATION MAPS ICI DES QUE LE SOUCIS DE LAYOUT SERA REGLE --- #}
+
+{% endblock %}

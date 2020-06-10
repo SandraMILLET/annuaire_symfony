@@ -1,0 +1,49 @@
+{% extends 'adminBase.html.twig' %}
+
+{% set indexAdmin = path('users') %}
+
+{% block title %}Delete User{% endblock %}
+
+{% block body %}
+
+<div class="jumbotron">
+    <h1 class="display-3 text-danger">Supprimer cet utilisateur ?</h1>
+    <hr class="my-4">
+    <div class="row d-flex justify-content-center col-12">
+        <div class="col-8 text-center card mb-5">
+            <h3 class="card-header">{{ user.id }}</h3>
+            <div class="card-body">
+                <h5 class="card-title">{{ user.email }}</h5>
+            </div>
+            <div class="card-body">
+                <h6 class="card-subtitle text-muted">{{ user.nom }} {{ user.prenom }}</h6>
+                {% if user.adresse != null %}
+                <h6 class="card-subtitle text-muted">{{ user.adresse }}</h6>
+                {% endif %}
+                {% if user.codepostal != null %}
+                <h6 class="card-subtitle text-muted">{{ user.codepostal }}</h6>
+                {% endif %}
+                {% if user.ville != null %}
+                <h6 class="card-subtitle text-muted">{{ user.ville }}</h6>
+                {% endif %}
+                {% if user.tel != null %}
+                <h6 class="card-subtitle text-muted">{{ user.tel }}</h6>
+                {% endif %}
+            </div>
+            {% if user.roles[0] != null %}
+            <div class="card-footer text-muted">
+                {{ user.roles[0] }}
+            </div>
+            {% endif %}
+        </div>
+        <form action="" method="post" class="lead d-flex justify-content-center align-items-center col-12 m-0">
+            <div class="form-group mr-5">
+                <a href="{{ indexAdmin }}" role="button" class="btn btn-info btn">Annuler</a>
+            </div>
+            {{ form_start(formDelete) }}
+            {{ form_end(formDelete) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

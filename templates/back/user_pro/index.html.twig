@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserPro index{% endblock %}
+
+{% block body %}
+<h1>UserPro index</h1>
+<!-- remettre adminBase en extends quand css permet le slide vers la droite-->
+
+<!-- faire passer les infos du form Registration si clic pro-->
+<div class="crud">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Logo<br>
+                    Société</th>
+                <th>Nom<br>
+                    Prénom</th>
+                <th>SIRET</th>
+                <th>Adresse<br>
+                    Code postal<br>
+                    Ville</th>
+                <th>Email<br>
+                    Téléphone</th>
+                <th>Mot de passe</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in user_pros %}
+            <tr>
+                <td>{{ user.pro.id }}</td>
+                <td>{{ vich_uploader_asset(user,'imageFile') }}<br>
+                    {{ user.society }}</td>
+                <td>{{ user.pro.nom }}<br>
+                    {{ user.pro.prenom }}</td>
+                <td>{{ user.SIRET }}</td>
+                <td>{{ user.pro.adresse }}<br>
+                    {{ user.pro.codepostal }}<br>
+                    {{ user.pro.ville }}</td>
+                <td>{{ user.pro.email }}<br>
+                    {{ user.pro.tel }}</td>
+                <td>{{ user.pro.password|length }}</td>
+                <td>
+                    <a type="button" class="btn btn-warning"
+                        href="{{ path('user_pro_show', {'id': user.pro.id}) }}">Voir</a>
+                    <a type="button" class="btn btn-warning"
+                        href="{{ path('user_pro_edit', {'id': user.pro.id}) }}">Editer</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="11">Pas de résultats trouvés</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<a type="button" class="btn btn-warning" href="{{ path('user_pro_new') }}">Créer nouveau</a>
+{% endblock %}

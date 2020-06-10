@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CONTACT{% endblock %}
+
+{% block body %}
+<div id="p1">
+    <h1> CONTACT </h1>
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+
+    <div class="row">
+
+
+        <div class="col-md-6">
+
+
+            <div class="envoyer">
+                <p class="txt">Vous avez des questions ou <br>peut-être rencontrez-vous <br>un problème sur notre
+                    site ?
+                    <br><br>Contactez-nous</p>
+
+            </div>
+        </div>
+
+        <div id="center" class="col-md-6">
+
+
+            {{ form_start(form) }}
+            {{ form_row(form.email, {'label':'Adresse éléctronique','attr': {'placeholder':'Votre adresse email'}}) }}
+            {{ form_row(form.name, {'label':'Votre Nom et Prénom','attr': {'placeholder':'Nom/Prénom'}}) }}
+            {{ form_row(form.tel, {'label':'Votre Numéro de Téléphone','attr': {'placeholder':'06 ** ** ** **'}}) }}
+            {{ form_row(form.object, {'label':'Sujet de votre Message','attr': {'placeholder':'Sujet'}}) }}
+            {{ form_row(form.message, {'label':'Votre Message','attr': {'placeholder':'Veulliez écrire votre message'}})
+            }}
+
+
+            <div class="envoyer">
+
+
+                <button type="submit" class="btn btn-warning">Envoyer</button>
+            </div>
+
+
+            {{ form_end(form) }}
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<script>
+    //captcha3
+    const SITEKEY = '6LenNu0UAAAAAE5rXV2DFhJv0VMS4Ofe9VwLA8jH';
+    //either on page load
+    grecaptcha.ready(function () {
+        grecaptcha.execute(SITEKEY, {
+            action: 'contact_form'
+        }).then(function (token) {
+            //the token will be sent on form submit
+            $('[name="captcha"]').val(token);
+            //keep in mind that token expires in 120 seconds so it's better to add setTimeout.
+        });
+    });
+
+    //or on form post:
+    grecaptcha.ready(function () {
+        grecaptcha.execute(SITEKEY, {
+            action: 'contact_form'
+        }).then(function (token) {
+            //submit the form
+            return http.post(url, {
+                email,
+                captcha: token
+            });
+        });
+    });
+</script>
+{% endblock %}

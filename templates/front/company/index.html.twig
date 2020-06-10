@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}companies index{% endblock %}
+
+{% block body %}
+<!-- remettre adminBase en extends quand css permet le slide vers la droite-->
+<h1>Vos entreprises</h1>
+<h3>Bienvenue dans votre tableau de bord, {{ app.user.prenom }} {{ app.user.nom }}</h3>
+<div class="crud">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Logo<br>
+                    Société</th>
+                <th>responsable</th>
+                <th>Catégorie<br>
+                    Activité<br>
+                <th> SIRET</th>
+                <th>adresse<br>
+                    code postal<br>
+                    ville</th>
+                <th>téléphone<br>
+                    email</th>
+                <th>Réseaux sociaux</th>
+                <th>presentation</th>
+                <th>service</th>
+                <th>tarif</th>
+                <th>book</th>
+                <th>horaire</th>
+                <th>fournisseur</th>
+                <th>emploi</th>
+                <th>Vérifié ?</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for company in companies %}
+            <tr>
+                <td>{{ company.id }}</td>
+                <td>{{ vich_uploader_asset(company,'imageFile') }}<br>
+                    {{ company.society }}</td>
+                <td>{{ company.responsable }}</td>
+                <td>{{ company.activity.categorie }} <br>
+                    {{ company.activity.metier }}<br>
+                <td>{{ company.SIRET }}</td>
+                <td>{{ company.address }}<br>
+                    {{ company.codepostal }}<br>
+                    {{ company.ville }}<br>
+                    {{ company.phone }}<br>
+                    {{ company.email }}</td>
+                <td>{% if company.reseaux == NULL %}
+                <p>Pas de réseaux remplis</p>
+                {% else %}
+                    {{ company.reseaux.facebook }}<br>
+                    {{ company.reseaux.twitter }}<br>
+                    {{ company.reseaux.instagram }}<br>
+                    {{ company.reseaux.pinterest }}<br>
+                    {{ company.reseaux.youtube }}<br>
+                    {{ company.reseaux.linkedin }}{% endif %}
+                </td>
+                <td>{{ company.presentation | raw  }}</td>
+                <td>{{ company.service | raw  }}</td>
+                <td>{{ company.tarif | raw  }}</td>
+                <td>{{ company.book | raw  }}</td>
+                <td>{{ company.horaire | raw  }}</td>
+                <td>{{ company.fournisseur | raw  }}</td>
+                <td>{{ company.emploi | raw  }}</td>
+                <td>{{ company.verify }}</td>
+                <td>
+                    <a type="button" class="btn btn-warning"
+                        href="{{ path('company_show', {'id': company.id}) }}">Voir</a>
+                    <a type="button" class="btn btn-warning"
+                        href="{{ path('company_edit', {'id': company.id}) }}">Editer</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="11">Pas de résultats trouvés</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<a type="button" class="btn btn-warning" href="{{ path('company_new') }}">Créer nouveau</a>
+{% endblock %}

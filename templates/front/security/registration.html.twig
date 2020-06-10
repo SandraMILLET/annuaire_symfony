@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+{% block body %}
+
+<div class="p1">
+
+    <h1>Inscription</h1>
+    <div class="row justify-content-center checkbox">
+        <p>Etes-vous un professionnel ?</p>
+    </div>
+    <div class="row justify-content-center checklabel">
+        <input type="checkbox" id="checkPro" name="drone" value="oui">
+        <label for="oui">Cochez si vous êtes un pro</label>
+    </div>
+    <div class="row justify-content-center formRreg">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <!--insertion input pro society et caché les autres-->
+        <div id="inputPro">
+            {{ form_widget(form.pro.society, {'label':'Votre société','attr': {'placeholder':'Nom de la société'}}) }}
+<br>
+            <!-- permet de ne pas afficher les labels des champs demandés mais reste les inputs champs not null a passer null-->
+            {{ form_row(form.pro.imageFile, {'label':'Logo','attr': {'class': 'hidden-row' }}) }}
+            
+            {{ form_row(form.pro.SIRET,  {'label':'SIRET', 'attr': {'class': 'hidden-row'},'attr': {'placeholder':'Votre numéro SIRET'} }) }}
+        </div>
+
+        {{ form_row(form.email, {'label':'Adresse électronique','attr': {'placeholder':'Votre adresse email'}}) }}
+        {{ form_row(form.nom, {'label':'Votre nom','attr': {'placeholder':'Nom de famille'}}) }}
+        {{ form_row(form.prenom, {'label':'Votre prénom','attr': {'placeholder':'Saisir votre prénom'}}) }}
+        {{ form_row(form.password, {'label':'Votre mot de passe : 8 caractères minimum','attr': {'placeholder':'Saisir mot de passe'}})}}
+        {{ form_row(form.confirm_password, {'label':'Confirmez votre mot de passe','attr': {'placeholder':'Veuillez confirmer votre mot de passe '}})}}
+
+        <script>
+            //captcha3
+            const SITEKEY = '6LenNu0UAAAAAE5rXV2DFhJv0VMS4Ofe9VwLA8jH';
+            //either on page load
+            grecaptcha.ready(function () {
+                grecaptcha.execute(SITEKEY, {
+                    action: 'security_registration'
+                }).then(function (token) {
+                    //the token will be sent on form submit
+                    $('[name="captcha"]').val(token);
+                    //keep in mind that token expires in 120 seconds so it's better to add setTimeout.
+                });
+            });
+
+            //or on form post:
+            grecaptcha.ready(function () {
+                grecaptcha.execute(SITEKEY, {
+                    action: 'security_registration'
+                }).then(function (token) {
+                    //submit the form
+                    return http.post(url, {
+                        email,
+                        captcha: token
+                    });
+                });
+            });
+
+            //display input pro
+            let radio = document.getElementById("checkPro");
+            let formPro = document.getElementById("inputPro");
+            formPro.style.display = "none";
+            radio.addEventListener("change", function (event) {
+                if (event.target.checked) {
+                    formPro.style.display = "block";
+                } else {
+                    formPro.style.display = "none";
+                }
+            });
+        </script>
+        <div class="row justify-content-center">
+            <button type="submit" class="btn btn-warning">Valider</button>
+        </div>
+        <div class="row justify-content-center">
+            <p>Vous avez déjà un compte ? <a class="linklog" href="{{ path('app_login') }}">Connectez-vous</a></p>
+        </div>
+        {{ form_end(form) }}
+
+    </div>
+</div>
+{% endblock %}

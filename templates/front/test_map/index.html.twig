@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+MapTest
+{% endblock %}
+
+{% block body %}
+<div id="map" class="container-fluid" style="height: 65vh;"></div>
+
+<hr>
+
+<div>
+	<p>Coordonnées : Lat : {{ lat }} / Lon : {{ lon }}</p>
+	<p>Adresse : {{ rue }}</p>
+	<p>Code Postal : {{ codePostal }}</p>
+	<p>Ville : {{ ville }}</p>
+	<p class="text-success">{{ content }}</p>
+</div>
+
+<hr>
+
+<div class="jumbotron">
+	<h1 class="display-5 text-dark">Bienvenu dans notre générateur d'adresses !</h1>
+	<hr class="my-4">
+	<p>Ici se tiendra la liste des professionnels</p>
+	<table class="table table-hover">
+		<thead>
+			<tr class="table-info">
+				<th scope="col">Nom/Prénom</th>
+				<th scope="col">Société</th>
+				<th scope="col">Adresse</th>
+				<th scope="col">GPS</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for pro in pros %}
+			<tr class="table-active">
+				<td scope="row">{{ pro.pro.nom }} {{ pro.pro.prenom }}</td>
+				<td>{{ pro.society }}</td>
+				<td>{{ pro.pro.adresse }}</td>
+				<td>{{ GPS[loop.index0][0] }} / {{ GPS[loop.index0][1] }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+{% endblock %}
+
+{% block scriptPerso %}
+<script>
+	let map = L.map('map').setView([43.21186065673828, 2.351871967315674], 8);
+	L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+		maxZoom: 20
+	}).addTo(map);
+
+
+	let xhttp = XMLHttpRequest();
+	//xhttp.open('GET', );
+	/*
+	let humphrey = L.marker([43.6036776, 2.2417954]).addTo(map);
+	humphrey.bindPopup("<p>Voici Humphrey... <br>(cliquez sur le cercle bleu oui oui)</p>").openPopup();
+
+	let egoHumphrey = L.circle([43.6036776, 2.2417954],
+		{
+			color: '#0032FF',
+			fillColor: '#00B2FF',
+			fillOpacity: '0.5',
+			radius: '65000'
+		}).addTo(map);
+	egoHumphrey.bindPopup("<p>... et voici son égo !<br>(blague de mauvais goût <3)</p>");
+
+	let kalvin = L.marker([43.21667, 2.35]).addTo(map);
+	kalvin.bindPopup("<p>Voici mon adorable personne ...</p>");
+
+	let egoKalvin = L.circle([43.21667, 2.35],
+		{
+			color: "#FF0000",
+			fillColor: "#FF2300",
+			fillOpacity: '0.5',
+			radius: '40000'
+		}).addTo(map);
+	egoKalvin.bindPopup("<p>...et mon amour inconditionnel pour Humphrey ~</p>");*/
+
+	/*
+		En ce qui concerne les markers, on pourrait créer un constructeur JS pour les générer à partir
+		des coordonnées registered en db (il faudra faire ami ami avec PHP ici)
+
+		L'OSRM utilisé par Leaflet est down, j'ai trouvé que des OSRM payants au bout d'un moment, donc à voir
+		s'il y a des alternatives où si ça rentre dans le business plan.
+		Donc routing down pour le moment.
+	*/
+</script>
+{% endblock scriptPerso %}

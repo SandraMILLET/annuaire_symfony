@@ -1,0 +1,73 @@
+{% extends 'adminBase.html.twig' %}
+
+{% set authorPCreateUrl = path('authorPannel_create') %}
+
+{% block title %}Panneau de Contrôle{% endblock %}
+
+{% block body %}
+<div class="row container col-10 d-flex justify-content-end mt-3">
+
+	<div class="container-fluid">
+		<div class="jumbotron">
+			<h1 class="display-3 d-flex justify-content-start text-info">Bienvenue</h1>
+			<p class="lead">D'ici vous pouvez être en gestion de vos articles. En créer, en éditer, en supprimer, vous
+				êtes aux commandes.</p>
+			<hr class="my-4">
+			<p>A vous de jouer !</p>
+			<p class="lead">
+				<a class="btn btn-info btn-lg mt-3" href="{{ authorPCreateUrl }}" role="button">Créer un article</a>
+			</p>
+		</div>
+	</div>
+
+	<div class="container-fluid d-flex justify-content-center">
+		<table class="table table-hover">
+			<thead>
+				<tr class="table-primary">
+					<th scope="col">Articles</th>
+					<th scope="col">Publication</th>
+					<th scope="col">Titre</th>
+					<th scope="col">Description</th>
+					<th scope="col">Etat</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for article in articles %}
+
+				{% set authorPUpdateUrl = path('authorPannel_update', {'id': article.id}) %}
+				{% set authorPDeleteUrl = path('authorPannel_delete', {'id': article.id}) %}
+				{% set articleUrl = path('actus_show', {'id': article.id}) %}
+
+				<tr class="table-default">
+					<td scope="row" class="font-weight-bold">{{ loop.index }}</td>
+					<td>{{ article.publishDate | date('\\L\\e d.m.Y') }}</td>
+					<td><a href="{{ articleUrl }}">{{ article.title }}</a></td>
+					<td>{{ article.description }}</td>
+
+					{% if article.status != 1 %}
+
+					<td class="text-muted">Brouillon</td>
+
+					{% else %}
+
+					<td class="text-info">Publié</td>
+
+					{% endif %}
+
+					<td>
+						<a href="{{ authorPUpdateUrl }}" class="btn btn-info text-light" role="button">Editer</a>
+						<a href="{{ authorPDeleteUrl }}" class="btn btn-danger text-light" role="button">Supprimer</a>
+						</tdBrouillon>
+				</tr>
+
+				{% endfor %}
+
+			</tbody>
+		</table>
+	</div>
+
+</div>
+
+
+{% endblock %}

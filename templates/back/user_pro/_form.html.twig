@@ -1,0 +1,13 @@
+{% extends 'adminBase.html.twig' %}
+{% block title %}UserPro{% endblock %}
+
+{% block body %}
+<div class="container">
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    
+
+    {{ form_widget(form, { 'label': 'Enregistrer' }) }}
+    {{ form_end(form) }}
+</div>
+{% endblock %}

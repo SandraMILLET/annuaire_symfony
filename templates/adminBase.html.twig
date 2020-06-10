@@ -1,0 +1,64 @@
+{% set authorPIndexUrl = path('authorPannel_index') %}
+{% set companyIndex = path('company_index') %}
+{% set userIndex = path('users') %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Admin{% endblock %}</title>
+
+
+	{% block stylesheets %}
+	{#
+		Liens du template implémenté de Lucas, je vais en faire un manuel pour avoir quelque chose de fonctionnel et permissif un minimum
+	<link rel="stylesheet" href="{{ asset('css/admin/bootstrap.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/admin/font-awesome.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/admin/animate.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/admin/custom.css') }} ">
+	<link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
+	#}
+
+	{# IMPLEMENTATION TEMPLATE KEY #}
+	<!--bootstrap-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
+	{% endblock %}
+	{% block articleStyle %}{% endblock %}
+</head>
+
+<body>
+	{#
+	{% include('admin/adminMenu.html.twig') %}
+	#}
+
+	<div class="Home">
+		<a href="{{ path('home') }}">
+			<h1>Annuaire</h1>
+		</a>
+	</div>
+
+	{% block nav %}
+	<div class="container col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2" id="right-menu">
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item menu-links text-center"><a class="text-white"
+					href="{{ userIndex }}">Utilisateurs</a>
+			</li>
+			<li class="list-group-item menu-links text-center"><a class="text-white"
+					href="{{ companyIndex }}">Entreprises &
+					Associations</a></li>
+			<li class="list-group-item menu-links text-center"><a class="text-white"
+					href="{{ authorPIndexUrl }}">Blog</a>
+			</li>
+		</ul>
+	</div>
+	{% endblock %}
+	{% block body %}
+
+	{% endblock %}
+
+</body>
+
+</html>

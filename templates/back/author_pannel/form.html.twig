@@ -1,0 +1,81 @@
+{% extends 'adminBase.html.twig' %}
+
+{% form_theme formArticle 'bootstrap_4_layout.html.twig' %}
+
+{% set authorPIndexUrl = path('authorPannel_index') %}
+
+{% block title %}
+
+{% if articleId %}
+Mise à jour d'un article
+{% else %}
+Création d'un article
+{% endif %}
+
+{% endblock %}
+
+{% block articleStyle %}
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block body %}
+<div class="row container col-10 d-flex justify-content-end mt-3 mb-5">
+
+	<div class="container-fluid">
+		<div class="jumbotron">
+			<h1 class="display-3 d-flex justify-content-start text-info">Bienvenue</h1>
+			<p class="lead">D'ici vous pouvez être en gestion de vos articles. En créer, en éditer, en supprimer, vous
+				êtes aux commandes.</p>
+			<hr class="my-4">
+			<p>A vous de jouer !</p>
+			<p class="lead">
+				<a class="btn btn-info btn-lg mt-3" href="{{ authorPIndexUrl }}" role="button">Retour</a>
+			</p>
+		</div>
+	</div>
+
+	<div id="formArticle" class="container-fluid d-flex justify-content-center">
+
+		{{ form_start(formArticle) }}
+
+		{{ form_row(formArticle.title, {'label': "Titre", 'attr': {'placeholder': "Le titre de votre article"}}) }}
+
+		{{ form_row(formArticle.description, {'label': "Description", 'attr': {'placeholder': "Sa description"}})
+		}}
+
+		{{ form_row(formArticle.content, {'label': "Contenu", 'attr': {'placeholder': "Son contenu", 'class': "summernote", 'name': "editordata"}})
+		}}
+
+		{{ form_row(formArticle.image, {'label': "Image miniature", 'attr': {'placeholder': "Et enfin sa miniature"}})
+		}}
+
+		{{ form_row(formArticle.status, {'label': "Publier l'article"}) }}
+
+		{% if articleId %}
+		<button type="submit" class="btn btn-info">Editer l'article</button>
+		{% else %}
+		<button type="submit" class="btn btn-info">Créer un article</button>
+		{% endif %}
+
+		{{ form_end(formArticle) }}
+
+	</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
+<script>
+	$('.summernote').summernote();
+</script>
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page de présentation professionnel{% endblock %}
+
+{% block body %}
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
+
+<!--head-->
+
+
+<div id="p1">
+    <div class="container-fluid">
+        <div class="row col-md-12">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <h1> Page de présentation</h1>
+            <p class="saisr">Veuillez saisir les informations concernant votre activité afin que votre page soit créer
+            </p>
+            <div class="col-md-12 headArt">
+                <h2>Identité :</h2>
+                <div class="row col-md-12 d-flex justify-content-around">
+
+                    {{ form_row(form.imageFile, {'label':'','attr': {'placeholder':''}}) }}</br>
+                    {{ form_row(form.society, {'label':'Votre société','attr': {'placeholder':'Nom de la société'}}) }}
+                    {{ form_row(form.responsable, {'label':'Le nom et le prénom du responsable','attr': {'placeholder':'Nom et Prénom'}})}}
+                </div>
+                <div class="row col-md-12 d-flex justify-content-around">
+                    <!-- insertion categorie et metiers de la table métiers-->
+
+                    {{ form_row(form.activity.categorie, {'label':'Catégorie','attr': {'placeholder':''}})}}
+                    {{ form_row(form.activity.metier, {'label':'Votre métier','attr': {'placeholder':''}})}}
+                    {{ form_row(form.SIRET, {'label':'Votre SIRET','attr': {'placeholder':'Les 14 chiffres du numéro SIRET'}})}}
+                </div>
+                <div class="container-fluid d-flex justify-content-center">
+                    <h2>Localisation et contact:</h2>
+                    <div class="row">
+                        <div class="col-md-6 justify-content-around">
+                            {{ form_row(form.address, {'label':'Adresse','attr': {'placeholder':'Adresse de la société'}})
+                            }}
+                            {{ form_row(form.codepostal, {'label':'Code postal','attr': {'placeholder':'Code postal à 5 chiffres'}})}}
+                            {{ form_row(form.ville, {'label':'Ville','attr': {'placeholder':'Ville'}})}}
+                        </div>
+                        <div class="col-md-6 justify-content-around coordonnes">
+                            {{ form_row(form.phone, {'label':'Numéro de téléphone','attr': {'placeholder':'Numéro de téléphone de la société'}})}}
+                            {{ form_row(form.email, {'label':'Email','attr': {'placeholder':'Email de la société'}})}}
+                        </div>
+                    </div>
+                </div>
+                    <!-- table reseaux -->
+                    <h2>Réseaux sociaux :</h2>
+                    <div class="row col-md-12 d-flex justify-content-around">
+
+                        {{ form_row(form.reseaux.facebook, {'label':'Facebook :','attr': {'placeholder':'Insérer le lien : https://.....'}})}}
+                        {{ form_row(form.reseaux.twitter, {'label':'Twitter :','attr': {'placeholder':'Insérer le lien : https://.....'}})}}
+                        {{ form_row(form.reseaux.instagram, {'label':'Instagram :','attr': {'placeholder':'Insérer le  : https://.....'}})}}
+                        {{ form_row(form.reseaux.linkedin, {'label':'Linkedin :','attr': {'placeholder':'Insérer le lien : https://.....'}})}}
+                        {{ form_row(form.reseaux.pinterest, {'label':'Pinterest :','attr': {'placeholder':'Insérer le lien : https://.....'}})}}
+                        {{ form_row(form.reseaux.youtube, {'label':'Youtube :','attr': {'placeholder':'Insérer le lien : https://.....'}})}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end head-->
+
+    <!--center page and aside-->
+    <div class="container-fluid centerAside">
+        <div class="row">
+            <section class="col-sm-9 col-md-9">
+                <div class="row presentation">
+                    <div class="col-md-12 sstitreArt">
+                        <h2>Présentation</h2>
+                    </div>
+                    {{ form_row(form.presentation, {'label':'Présentation de votre activité','attr': {'placeholder':'Dites nous ce que vous faites, qui vous êtes ?', 'class': "summernote", 'name': "editordata"}})}}
+
+                    <!--Service-->
+                    <div class="col-md-12 sstitreArt">
+                        <h2>Services proposés</h2>
+                    </div>
+                    {{ form_row(form.service, {'label':'Services','attr': {'placeholder':'Quels sont les services que vous proposez ?', 'class': "summernote", 'name': "editordata"}})}}
+
+                    <!--Book-->
+                    <div class="col-md-12 sstitreArt">
+                        <h2>Projets réalisés</h2>
+                    </div>
+                    {{ form_row(form.book, {'label':'Book','attr': {'placeholder':'Montrez nous un exemple de services ou de travaux effectués', 'class': "summernote", 'name': "editordata"}})}}
+
+                    <!-- Tarifs-->
+                    <div class="col-md-12 sstitreArt">
+                        <h2>Tarifs Fixes</h2>
+                    </div>
+                    {{ form_row(form.tarif, {'label':'Tarifs','attr': {'placeholder':'Indiquez vos tarifs fixes', 'class': "summernote", 'name': "editordata"}})
+                    }}
+                </div>
+            </section>
+            <!--Aside-->
+            <div class="col-md-3 border-left border-warning text-center aside">
+                <div class="row">
+                    <aside class="col-md-12">
+                        <div class="col-md-12 horaire">
+                            <h3 class="h3Art">Horaires</h3>
+                        </div>
+                        {{ form_row(form.horaire, {'label':'Horaires','attr': {'placeholder':'Indiquez vos horaires', 'class': "summernote", 'name': "editordata"}})}}
+
+                        <div class="col-md-12 buttn">
+                            <button class="btnArt">Rendez-vous</button>
+                        </div>
+                        <div class="col-md-12 buttn">
+                            <button class="btnArt">Devis</button>
+                        </div>
+                        <div class="col-md-12 buttn">
+                            <button class="btnArt">Offres d'emploi</button>
+                            {{ form_row(form.emploi, {'label':'Emploi','attr': {'placeholder':'Recherchez vous un apprenti, un salarié.... Indiquez votre recherche', 'class': "summernote", 'name': "editordata"}})}}
+                        </div>
+                        <h3 class="h3Art">Fournisseurs</h3>
+                        {{ form_row(form.fournisseur, {'label':'Fournisseurs/Partenaires','attr': {'placeholder':'Quels sont vos partenaires ou fournisseurs', 'class': "summernote", 'name': "editordata"}})}}
+
+                    </aside>
+                </div>
+            </div>
+            <!--end aside-->
+        </div>
+        <!--container-fluid-->
+    </div>
+    <!--end center page and aside-->
+
+    <!--bas center-->
+
+    {{ form_widget(form.save, { 'label': 'Enregistrer' }) }}
+    {{ form_end(form) }}
+
+    {% endblock %}
+
+    {% block javascripts %}{% endblock %}
+    {% block scriptPerso %}
+    <!--bootstrap-->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
+    <script>
+        $('.summernote').summernote();
+    </script>
+
+    </script>{% endblock %}

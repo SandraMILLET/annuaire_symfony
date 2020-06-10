@@ -1,0 +1,44 @@
+{% extends 'adminBase.html.twig' %}
+
+{% set authorPIndexUrl = path('authorPannel_index') %}
+
+{# Encore une fois, impossible de réagencer la card comme je le voudrai #}
+
+{% block title %}
+Suppression d'article
+{% endblock %}
+
+{% block body %}
+
+<div class="row container col-10 d-flex justify-content-end mt-3">
+
+	<div class="jumbotron">
+		<h1 class="display-3 text-danger">Supprimer cet article ?</h1>
+		<hr class="my-4">
+		<div class="row d-flex justify-content-center col-12">
+			<div class="col-8 text-center card mb-5">
+				<h3 class="card-header">{{ article.id }}</h3>
+				<div class="card-body">
+					<h5 class="card-title">{{ article.title }}</h5>
+				</div>
+				<img src="{{ article.image }}" style="width: 100%; height:200px;" alt="Post image">
+				<div class="card-body">
+					<h6 class="card-subtitle text-muted">{{ article.description }}</h6>
+				</div>
+				<div class="card-footer text-muted">
+					{{ article.publishDate | date('\\l\\e d.m.Y') }}
+				</div>
+			</div>
+			<form action="" method="post" class="lead d-flex justify-content-center align-items-center col-12 m-0">
+				<div class="form-group mr-5">
+					<a href="{{ authorPIndexUrl }}" role="button" class="btn btn-info btn-lg">Annuler</a>
+				</div>
+				{{ form_start(formDelete) }}
+				{{ form_end(formDelete) }}
+			</form>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}

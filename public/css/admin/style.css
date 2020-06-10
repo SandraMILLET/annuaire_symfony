@@ -1,0 +1,21 @@
+/** RIGHT MENU **/
+.menu-links
+{
+    background-color: #2a2f43;
+    width: 100%;
+}
+.menu-links:hover
+{
+    background-color: rgb(231, 142, 9);
+}
+#right-menu
+{
+    position: fixed;
+    right: 0;
+    bottom:0;
+    padding: 0;
+    margin: 0;
+    height: 90%;
+    background-color: #2a2f43;
+    z-index: 100;
+}

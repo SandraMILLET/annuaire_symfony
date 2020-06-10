@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% set authorPIndexUrl = path('authorPannel_index') %}
+
+{% block title %}
+Conseils et astuces
+{% endblock %}
+
+{% block body %}
+<div id="p1">
+
+	{% if is_granted('ROLE_ADMIN') %}
+	<a href="{{ authorPIndexUrl }}" class="btn btn-info">Admin Blog</a>
+	{% endif %}
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12 headmi">
+				<div class="respmod mb-5">Vous avez frappé à la bonne porte !
+					<br>
+					<p class="h6">Découvrez nos guides et astuces pour tous vos projets.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid mt-5">
+	<div class="row d-flex justify-content-around">
+
+		{% for article in articles %}
+
+		{% set actusShowUrl = path('actus_show', {'id': article.id}) %}
+
+		<div class="col-md-3 col-sm-12 text-center card mr-1 ml-1 mb-5">
+			<h3 class="card-header">{{ article.id }}</h3>
+			<div class="card-body">
+				<h5 class="card-title">{{ article.title }}</h5>
+			</div>
+			<img src="{{ article.image }}" style="width: 100%; height:200px;" alt="Post image">
+			<div class="card-body">
+				<h6 class="card-subtitle text-muted">{{ article.description }}</h6>
+			</div>
+			<div class="card-body">
+				<a href="{{ actusShowUrl }}" class="btn btn-primary" role="button">En savoir plus</a>
+			</div>
+			<div class="card-footer text-muted">
+				{{ article.publishDate | date('\\l\\e d.m.Y') }}
+			</div>
+		</div>
+
+		{% endfor %}
+
+	</div>
+</div>
+
+{% endblock %}

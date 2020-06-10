@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% set authorPIndexUrl = path('authorPannel_index') %}
+{% set authorPUpdate = path('authorPannel_update', {'id': article.id}) %}
+
+{% block title %}
+{{ article.title }}
+{% endblock %}
+
+{% block body %}
+
+<div id="p1">
+
+	{% if is_granted('ROLE_ADMIN') %}
+	<a href="{{ authorPIndexUrl }}" class="btn btn-info mr-2">Admin Article</a>
+	<a href="{{ authorPUpdate }}" class="btn btn-success">Editer</a>
+	{% endif %}
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12 headmi">
+				<div class="respmod mb-5">{{ article.title }}</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="jumbotron">
+	<div class="d-flex justify-content-center">
+		<img src="{{ article.image }}" alt="Image de l'article">
+	</div>
+	<p class="lead text-muted mt-3 mb-3 text-center">{{ article.description }}</p>
+	<hr>
+	<p class="lead mt-5">{{ article.content | raw }}</p>
+	<p class="lead col-12 text-center">Ecrit le {{ article.publishDate | date('\\l\\e d.m.Y') }}</p>
+</div>
+<div class="row mt-5 mb-5 col-12 d-flex justify-content-center">
+	<p class="com-sm-10 col-md-8 h2 text-center">Cet article vous a été utile ?</p>
+	<div class="col-sm-10 com-md-8 d-flex justify-content-center mt-4">
+		<button type="button" class="btn btn-primary mr-5">Oui</button>
+		<button type="button" class="btn btn-danger">Non</button>
+	</div>
+</div>
+</div>
+
+
+{% endblock %}
